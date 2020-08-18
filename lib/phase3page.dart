@@ -5,42 +5,37 @@ class Phase3page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.green[900],
           title: Text('Phase 3'),
         ),
         body: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: FractionalOffset.topLeft,
-                  end: FractionalOffset.bottomRight,
-                  colors: [
-                Colors.green,
-                Colors.black,
-              ])),
-          child: Column(
+          decoration: BoxDecoration(color: Color.fromRGBO(46, 75, 38, 1.0)),
+          child: ListView(
             children: <Widget>[
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  margin: EdgeInsets.all(15.0),
-                  height: 70.0,
-                  decoration: BoxDecoration(
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    decoration: BoxDecoration(
                       border: Border.all(
-                    style: BorderStyle.solid,
-                    color: Colors.white,
-                    width: 3.0,
-                  )),
-                  child: Center(
-                    child: Text(
-                      'Murder',
+                        width: 3.0,
+                        color: Colors.green,
+                      ),
+                      color: Colors.green[900],
+                    ),
+                    height: 75.0,
+                    child: Center(
+                        child: Text(
+                      'Homicide',
                       style: TextStyle(
                         fontSize: 20.0,
                         color: Colors.white,
                       ),
-                    ),
+                    )),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ));

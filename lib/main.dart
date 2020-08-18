@@ -5,12 +5,15 @@ import 'phase1page.dart';
 
 void main() => runApp(MyApp());
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Homescreen(),
+      navigatorKey: navigatorKey,
     );
   }
 }
@@ -20,7 +23,7 @@ class Homescreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Color.fromRGBO(37, 45, 75, 1.0),
         body: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -84,25 +87,6 @@ class Homescreen extends StatelessWidget {
                   child: Center(
                     child: Text(
                       'Phase 3',
-                      style: TextStyle(
-                        fontSize: 50.0,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  height: 100.0,
-                  width: 300.0,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                  ),
-                  child: Center(
-                    child: Text(
-                      'All Phases',
                       style: TextStyle(
                         fontSize: 50.0,
                         color: Colors.white,
