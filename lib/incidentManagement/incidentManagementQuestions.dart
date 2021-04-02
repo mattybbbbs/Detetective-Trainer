@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:detective_trainer/globals.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +61,10 @@ class _IncidentState extends State<Incident> {
                     incidentQuizBrain.nextQuestion();
                     if (questionNumber < incidentQuizBrain.magicNumber()) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
-                      incidentQuizBrain.feedbackIcon(),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: incidentQuizBrain.feedbackIcon(),
+                      ),
                       Flexible(child: Text(incidentQuizBrain.correctAnswerForSnack()))
                     ],
                     ),
@@ -101,7 +103,10 @@ class _IncidentState extends State<Incident> {
                     incidentQuizBrain.nextQuestion();
                     if (questionNumber < incidentQuizBrain.magicNumber()) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
-                      incidentQuizBrain.feedbackIcon(),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: incidentQuizBrain.feedbackIcon(),
+                      ),
                       Flexible(child: Text(incidentQuizBrain.correctAnswerForSnack()))
                     ],
                     ),
@@ -139,7 +144,10 @@ class _IncidentState extends State<Incident> {
                     incidentQuizBrain.nextQuestion();
                     if (questionNumber < incidentQuizBrain.magicNumber()) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
-                      incidentQuizBrain.feedbackIcon(),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: incidentQuizBrain.feedbackIcon(),
+                      ),
                       Flexible(child: Text(incidentQuizBrain.correctAnswerForSnack()))
                     ],),
                     duration: Duration(seconds: 3),
@@ -180,29 +188,7 @@ class _IncidentState extends State<Incident> {
     );
   }
 }
-// class SnackBarCorrect extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return SnackBar(content: Row(
-//       children: [
-//       Icon(Icons.check_circle_rounded,
-//                 color: Colors.green,),
-//                 Text('Correct Snacks'),
-//     ],),);
-//   }
-// }
 
-// class SnackBarWrong extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return SnackBar(content: Row(
-//         children: [
-//           Icon(Icons.cancel_rounded,
-//           color: Colors.red,),
-//           Text('Wrong Snacks'),
-//         ],),);
-//   }
-// }
 
 
 

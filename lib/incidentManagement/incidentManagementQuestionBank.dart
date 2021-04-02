@@ -7,8 +7,6 @@ import 'package:detective_trainer/globals.dart';
 class IncidentQuizBrain {
   String pickedAnswer = "";
 
-  
-
   List<Question> _incidentQuestionBank = [
     Question(
         'What is a crime scene?',
@@ -146,21 +144,9 @@ class IncidentQuizBrain {
     if (_incidentQuestionBank[questionNumber].correctAnswer == pickedAnswer) {
       score++;
       print(score);
-      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
-      //   Icon(Icons.check_circle_rounded,
-      //           color: Colors.green,),
-      //           Text(correctAnswerForSnack())
-      // ],)));
-      // Get.snackbar('Correct', _incidentQuestionBank[questionNumber].correctAnswer);
 
     } else {
       print(score);
-      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
-      // Icon(Icons.cancel_rounded,
-      //     color: Colors.red,),
-      //     Text(correctAnswerForSnack())
-      // ]),));
-      // Get.snackbar('Wrong', _incidentQuestionBank[questionNumber].correctAnswer);
 
     }
   }
@@ -175,10 +161,6 @@ class IncidentQuizBrain {
           color: Colors.red,);
     }
   }
-
-
-
-
 
   String getQuestionText() {
     return _incidentQuestionBank[questionNumber].questionText;
@@ -200,25 +182,6 @@ class IncidentQuizBrain {
     return _incidentQuestionBank.length - 1;
   }
 
-  // SnackBar snackBarCorrect() {
-  //   return SnackBar(content: Row(
-  //     children: [
-  //     Icon(Icons.check_circle_rounded,
-  //               color: Colors.green,),
-  //               Text(correctAnswerForSnack())
-  //   ],),);
-  // }
-
-  // SnackBar snackBarWrong() {
-  //   return 
-  //     SnackBar(content: Row(
-  //       children: [
-  //         Icon(Icons.cancel_rounded,
-  //         color: Colors.red,),
-  //         Text(correctAnswerForSnack())
-  //       ],
-  //     ),)
-  //   ;
   }
   
 
