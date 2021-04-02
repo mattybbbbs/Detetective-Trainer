@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'assaultQuestionBank.dart';
+import 'policePowersQuestionBank.dart';
 
-AssaultQuizBrain assaultQuizBrain = AssaultQuizBrain();
+PolicePowersQuizBrain policePowersQuizBrain = PolicePowersQuizBrain();
 
-class Assaults extends StatefulWidget {
+class Policepowers extends StatefulWidget {
   @override
-  _AssaultsState createState() => _AssaultsState();
+  _PolicepowersState createState() => _PolicepowersState();
 }
 
-class _AssaultsState extends State<Assaults> {
+class _PolicepowersState extends State<Policepowers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Offences against the person'),
+        title: Text('Police Powers'),
         //ToDo: Add pic and hero animation
       ),
       body: SafeArea(
@@ -40,7 +40,7 @@ class _AssaultsState extends State<Assaults> {
                 ),
                 child: Center(
                   child: Text(
-                    assaultQuizBrain.getQuestionText(),
+                    policePowersQuizBrain.getQuestionText(),
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -50,35 +50,9 @@ class _AssaultsState extends State<Assaults> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedOne();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
-                  });
-                },
-                child: Container(
-                  margin: EdgeInsets.all(15.0),
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                    color: Colors.white,
-                    style: BorderStyle.solid,
-                    width: 3.0,
-                  )),
-                  height: 50.0,
-                  child: Center(
-                    child:
-                        Text(assaultQuizBrain.getWrongAnswers()[0].toString(),
-                            style: TextStyle(
-                              color: Colors.white,
-                            )),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    assaultQuizBrain.pickedTwo();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    policePowersQuizBrain.pickedOne();
+                    policePowersQuizBrain.checkAnswer();
+                    policePowersQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -92,7 +66,33 @@ class _AssaultsState extends State<Assaults> {
                   height: 50.0,
                   child: Center(
                     child: Text(
-                      assaultQuizBrain.getWrongAnswers()[1].toString(),
+                        policePowersQuizBrain.getWrongAnswers()[0].toString(),
+                        style: TextStyle(
+                          color: Colors.white,
+                        )),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    policePowersQuizBrain.pickedTwo();
+                    policePowersQuizBrain.checkAnswer();
+                    policePowersQuizBrain.nextQuestion();
+                  });
+                },
+                child: Container(
+                  margin: EdgeInsets.all(15.0),
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                    color: Colors.white,
+                    style: BorderStyle.solid,
+                    width: 3.0,
+                  )),
+                  height: 50.0,
+                  child: Center(
+                    child: Text(
+                      policePowersQuizBrain.getWrongAnswers()[1].toString(),
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -103,9 +103,9 @@ class _AssaultsState extends State<Assaults> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedThree();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    policePowersQuizBrain.pickedThree();
+                    policePowersQuizBrain.checkAnswer();
+                    policePowersQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -119,7 +119,7 @@ class _AssaultsState extends State<Assaults> {
                   height: 50.0,
                   child: Center(
                     child: Text(
-                      assaultQuizBrain.getWrongAnswers()[2].toString(),
+                      policePowersQuizBrain.getWrongAnswers()[2].toString(),
                       style: TextStyle(
                         color: Colors.white,
                       ),

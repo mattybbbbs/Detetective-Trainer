@@ -1,5 +1,8 @@
+import 'package:detective_trainer/globals.dart';
+import 'package:detective_trainer/robbery/robberyQuestions.dart';
 import 'package:flutter/material.dart';
-import 'drugs/drugQuestions.dart';
+import 'package:detective_trainer/fraud/fraudQuestions.dart';
+import 'package:detective_trainer/sex/sexQuestions.dart';
 
 class Phase2page extends StatelessWidget {
   @override
@@ -17,10 +20,11 @@ class Phase2page extends StatelessWidget {
               padding: const EdgeInsets.all(15.0),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Druginvestigations()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Fraud()));
+                  questionNumber = 0;
+                  score = 0;
+                  fraudQuizBrain.fraudShuffle();
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -31,14 +35,74 @@ class Phase2page extends StatelessWidget {
                     color: Colors.red[900],
                   ),
                   height: 75.0,
-                  child: Center(
-                      child: Text(
-                    'Fraud',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Image.asset('assets/cyber-crime.png'),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Text(
+                          'Fraud',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Robbery()));
+                  questionNumber = 0;
+                  score = 0;
+                  robberyQuizBrain.robberyShuffle();
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 3.0,
+                      color: Colors.red,
                     ),
-                  )),
+                    color: Colors.red[900],
+                  ),
+                  height: 75.0,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Image.asset('assets/thief.png'),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Text(
+                          'Property offences and Robbery',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -47,9 +111,10 @@ class Phase2page extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Druginvestigations()));
+                      context, MaterialPageRoute(builder: (context) => Sex()));
+                  questionNumber = 0;
+                  score = 0;
+                  sexQuizBrain.sexShuffle();
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -60,43 +125,29 @@ class Phase2page extends StatelessWidget {
                     color: Colors.red[900],
                   ),
                   height: 75.0,
-                  child: Center(
-                      child: Text(
-                    'Property Offences and Robbery',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.white,
-                    ),
-                  )),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Druginvestigations()));
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      width: 3.0,
-                      color: Colors.red,
-                    ),
-                    color: Colors.red[900],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Image.asset('assets/gender-fluid.png'),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Text(
+                          'Sexual offences',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  height: 75.0,
-                  child: Center(
-                      child: Text(
-                    'Sexual Offences',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.white,
-                    ),
-                  )),
                 ),
               ),
             ),

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import '../questionModel.dart';
-import '../results.dart';
-import '../main.dart';
+import 'package:detective_trainer/questionModel.dart';
+import 'package:detective_trainer/results.dart';
+import 'package:detective_trainer/main.dart';
 import 'package:detective_trainer/globals.dart';
 
-class DrugQuizBrain {
+class SexQuizBrain {
   String pickedAnswer = "";
 
-  List<Question> _drugQuestionBank = [
+  List<Question> _sexQuestionBank = [
     //ToDO: Add proper questions
     Question('Question 1', ['A', 'B', 'C'], 'A'),
     Question('What is the leading case law on possession?',
@@ -15,12 +15,12 @@ class DrugQuizBrain {
     Question('Is this the third question?', ['yes', 'no', 'maybe'], 'yes')
   ];
 
-  void drugShuffle() {
-    _drugQuestionBank.shuffle();
+  void sexShuffle() {
+    _sexQuestionBank.shuffle();
   }
 
   void nextQuestion() {
-    if (questionNumber < _drugQuestionBank.length - 1) {
+    if (questionNumber < _sexQuestionBank.length - 1) {
       questionNumber++;
     } else {
       navigatorKey.currentState.push(MaterialPageRoute(
@@ -30,19 +30,19 @@ class DrugQuizBrain {
   }
 
   void pickedOne() {
-    pickedAnswer = _drugQuestionBank[questionNumber].questionAnswers[0];
+    pickedAnswer = _sexQuestionBank[questionNumber].questionAnswers[0];
   }
 
   void pickedTwo() {
-    pickedAnswer = _drugQuestionBank[questionNumber].questionAnswers[1];
+    pickedAnswer = _sexQuestionBank[questionNumber].questionAnswers[1];
   }
 
   void pickedThree() {
-    pickedAnswer = _drugQuestionBank[questionNumber].questionAnswers[2];
+    pickedAnswer = _sexQuestionBank[questionNumber].questionAnswers[2];
   }
 
   checkAnswer() {
-    if (_drugQuestionBank[questionNumber].correctAnswer == pickedAnswer) {
+    if (_sexQuestionBank[questionNumber].correctAnswer == pickedAnswer) {
       score++;
       //ToDO: Give positive feedback
       print(score);
@@ -53,14 +53,14 @@ class DrugQuizBrain {
   }
 
   String getQuestionText() {
-    return _drugQuestionBank[questionNumber].questionText;
+    return _sexQuestionBank[questionNumber].questionText;
   }
 
   List getWrongAnswers() {
-    return _drugQuestionBank[questionNumber].questionAnswers;
+    return _sexQuestionBank[questionNumber].questionAnswers;
   }
 
   String getCorrectAnswer() {
-    return _drugQuestionBank[questionNumber].correctAnswer;
+    return _sexQuestionBank[questionNumber].correctAnswer;
   }
 }

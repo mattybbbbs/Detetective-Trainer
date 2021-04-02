@@ -1,30 +1,25 @@
 import 'package:flutter/material.dart';
-import 'assaultQuestionBank.dart';
+import 'sexQuestionBank.dart';
 
-AssaultQuizBrain assaultQuizBrain = AssaultQuizBrain();
+SexQuizBrain sexQuizBrain = SexQuizBrain();
 
-class Assaults extends StatefulWidget {
+class Sex extends StatefulWidget {
   @override
-  _AssaultsState createState() => _AssaultsState();
+  _SexState createState() => _SexState();
 }
 
-class _AssaultsState extends State<Assaults> {
+class _SexState extends State<Sex> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Offences against the person'),
+        backgroundColor: Colors.red[900],
+        title: Text('Sexual offences'),
         //ToDo: Add pic and hero animation
       ),
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
-              color: Color.fromRGBO(
-            37,
-            45,
-            75,
-            1.0,
-          )),
+          decoration: BoxDecoration(color: Color.fromRGBO(75, 38, 45, 1.0)),
           child: ListView(
             scrollDirection: Axis.vertical,
             children: [
@@ -40,7 +35,7 @@ class _AssaultsState extends State<Assaults> {
                 ),
                 child: Center(
                   child: Text(
-                    assaultQuizBrain.getQuestionText(),
+                    sexQuizBrain.getQuestionText(),
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -50,9 +45,9 @@ class _AssaultsState extends State<Assaults> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedOne();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    sexQuizBrain.pickedOne();
+                    sexQuizBrain.checkAnswer();
+                    sexQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -65,20 +60,19 @@ class _AssaultsState extends State<Assaults> {
                   )),
                   height: 50.0,
                   child: Center(
-                    child:
-                        Text(assaultQuizBrain.getWrongAnswers()[0].toString(),
-                            style: TextStyle(
-                              color: Colors.white,
-                            )),
+                    child: Text(sexQuizBrain.getWrongAnswers()[0].toString(),
+                        style: TextStyle(
+                          color: Colors.white,
+                        )),
                   ),
                 ),
               ),
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedTwo();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    sexQuizBrain.pickedTwo();
+                    sexQuizBrain.checkAnswer();
+                    sexQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -92,7 +86,7 @@ class _AssaultsState extends State<Assaults> {
                   height: 50.0,
                   child: Center(
                     child: Text(
-                      assaultQuizBrain.getWrongAnswers()[1].toString(),
+                      sexQuizBrain.getWrongAnswers()[1].toString(),
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -103,9 +97,9 @@ class _AssaultsState extends State<Assaults> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedThree();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    sexQuizBrain.pickedThree();
+                    sexQuizBrain.checkAnswer();
+                    sexQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -119,7 +113,7 @@ class _AssaultsState extends State<Assaults> {
                   height: 50.0,
                   child: Center(
                     child: Text(
-                      assaultQuizBrain.getWrongAnswers()[2].toString(),
+                      sexQuizBrain.getWrongAnswers()[2].toString(),
                       style: TextStyle(
                         color: Colors.white,
                       ),

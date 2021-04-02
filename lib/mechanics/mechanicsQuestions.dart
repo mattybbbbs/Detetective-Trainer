@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'assaultQuestionBank.dart';
+import 'mechanicsQuestionBank.dart';
 
-AssaultQuizBrain assaultQuizBrain = AssaultQuizBrain();
+MechanicsQuizBrain mechanicsQuizBrain = MechanicsQuizBrain();
 
-class Assaults extends StatefulWidget {
+class Mechanics extends StatefulWidget {
   @override
-  _AssaultsState createState() => _AssaultsState();
+  _MechanicsState createState() => _MechanicsState();
 }
 
-class _AssaultsState extends State<Assaults> {
+class _MechanicsState extends State<Mechanics> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Offences against the person'),
+        title: Text('Mechanics of Law'),
         //ToDo: Add pic and hero animation
       ),
       body: SafeArea(
@@ -40,7 +40,7 @@ class _AssaultsState extends State<Assaults> {
                 ),
                 child: Center(
                   child: Text(
-                    assaultQuizBrain.getQuestionText(),
+                    mechanicsQuizBrain.getQuestionText(),
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -50,9 +50,9 @@ class _AssaultsState extends State<Assaults> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedOne();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    mechanicsQuizBrain.pickedOne();
+                    mechanicsQuizBrain.checkAnswer();
+                    mechanicsQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -66,7 +66,7 @@ class _AssaultsState extends State<Assaults> {
                   height: 50.0,
                   child: Center(
                     child:
-                        Text(assaultQuizBrain.getWrongAnswers()[0].toString(),
+                        Text(mechanicsQuizBrain.getWrongAnswers()[0].toString(),
                             style: TextStyle(
                               color: Colors.white,
                             )),
@@ -76,9 +76,9 @@ class _AssaultsState extends State<Assaults> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedTwo();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    mechanicsQuizBrain.pickedTwo();
+                    mechanicsQuizBrain.checkAnswer();
+                    mechanicsQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -92,7 +92,7 @@ class _AssaultsState extends State<Assaults> {
                   height: 50.0,
                   child: Center(
                     child: Text(
-                      assaultQuizBrain.getWrongAnswers()[1].toString(),
+                      mechanicsQuizBrain.getWrongAnswers()[1].toString(),
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -103,9 +103,9 @@ class _AssaultsState extends State<Assaults> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedThree();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    mechanicsQuizBrain.pickedThree();
+                    mechanicsQuizBrain.checkAnswer();
+                    mechanicsQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -119,7 +119,7 @@ class _AssaultsState extends State<Assaults> {
                   height: 50.0,
                   child: Center(
                     child: Text(
-                      assaultQuizBrain.getWrongAnswers()[2].toString(),
+                      mechanicsQuizBrain.getWrongAnswers()[2].toString(),
                       style: TextStyle(
                         color: Colors.white,
                       ),

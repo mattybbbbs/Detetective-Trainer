@@ -1,30 +1,25 @@
 import 'package:flutter/material.dart';
-import 'assaultQuestionBank.dart';
+import 'fraudQuestionBank.dart';
 
-AssaultQuizBrain assaultQuizBrain = AssaultQuizBrain();
+FraudQuizBrain fraudQuizBrain = FraudQuizBrain();
 
-class Assaults extends StatefulWidget {
+class Fraud extends StatefulWidget {
   @override
-  _AssaultsState createState() => _AssaultsState();
+  _FraudState createState() => _FraudState();
 }
 
-class _AssaultsState extends State<Assaults> {
+class _FraudState extends State<Fraud> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Offences against the person'),
+        backgroundColor: Colors.red[900],
+        title: Text('Fraud'),
         //ToDo: Add pic and hero animation
       ),
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
-              color: Color.fromRGBO(
-            37,
-            45,
-            75,
-            1.0,
-          )),
+          decoration: BoxDecoration(color: Color.fromRGBO(75, 38, 45, 1.0)),
           child: ListView(
             scrollDirection: Axis.vertical,
             children: [
@@ -40,7 +35,7 @@ class _AssaultsState extends State<Assaults> {
                 ),
                 child: Center(
                   child: Text(
-                    assaultQuizBrain.getQuestionText(),
+                    fraudQuizBrain.getQuestionText(),
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -50,9 +45,9 @@ class _AssaultsState extends State<Assaults> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedOne();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    fraudQuizBrain.pickedOne();
+                    fraudQuizBrain.checkAnswer();
+                    fraudQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -65,20 +60,19 @@ class _AssaultsState extends State<Assaults> {
                   )),
                   height: 50.0,
                   child: Center(
-                    child:
-                        Text(assaultQuizBrain.getWrongAnswers()[0].toString(),
-                            style: TextStyle(
-                              color: Colors.white,
-                            )),
+                    child: Text(fraudQuizBrain.getWrongAnswers()[0].toString(),
+                        style: TextStyle(
+                          color: Colors.white,
+                        )),
                   ),
                 ),
               ),
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedTwo();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    fraudQuizBrain.pickedTwo();
+                    fraudQuizBrain.checkAnswer();
+                    fraudQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -92,7 +86,7 @@ class _AssaultsState extends State<Assaults> {
                   height: 50.0,
                   child: Center(
                     child: Text(
-                      assaultQuizBrain.getWrongAnswers()[1].toString(),
+                      fraudQuizBrain.getWrongAnswers()[1].toString(),
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -103,9 +97,9 @@ class _AssaultsState extends State<Assaults> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedThree();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    fraudQuizBrain.pickedThree();
+                    fraudQuizBrain.checkAnswer();
+                    fraudQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -119,7 +113,7 @@ class _AssaultsState extends State<Assaults> {
                   height: 50.0,
                   child: Center(
                     child: Text(
-                      assaultQuizBrain.getWrongAnswers()[2].toString(),
+                      fraudQuizBrain.getWrongAnswers()[2].toString(),
                       style: TextStyle(
                         color: Colors.white,
                       ),

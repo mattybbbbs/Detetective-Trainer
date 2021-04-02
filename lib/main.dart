@@ -23,12 +23,31 @@ class Homescreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromRGBO(37, 45, 75, 1.0),
+        backgroundColor: Colors.blue[900],
         body: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(15.0),
+                    bottomRight: Radius.circular(15.0),
+                  ),
+                  color: Colors.blue[900],
+                ),
+                child: Center(
+                  child: Text(
+                    'Detective Trainer',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 50.0,
+                    ),
+                  ),
+                ),
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.push(context,

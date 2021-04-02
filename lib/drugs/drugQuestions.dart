@@ -14,7 +14,7 @@ class _DruginvestigationsState extends State<Druginvestigations> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Drug Investigations'),
+        title: Text('Drugs'),
         //ToDo: Add pic and hero animation
       ),
       body: SafeArea(
@@ -26,8 +26,9 @@ class _DruginvestigationsState extends State<Druginvestigations> {
             75,
             1.0,
           )),
-          child: Column(
-            children: <Widget>[
+          child: ListView(
+            scrollDirection: Axis.vertical,
+            children: [
               Container(
                 margin: EdgeInsets.all(15.0),
                 height: 200.0,
@@ -47,92 +48,83 @@ class _DruginvestigationsState extends State<Druginvestigations> {
                   ),
                 ),
               ),
-              Center(
-                child: ListView(
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          drugQuizBrain.pickedOne();
-                          drugQuizBrain.checkAnswer();
-                          drugQuizBrain.nextQuestion();
-                        });
-                      },
-                      child: Container(
-                        margin: EdgeInsets.all(15.0),
-                        decoration: BoxDecoration(
-                            border: Border.all(
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    drugQuizBrain.pickedOne();
+                    drugQuizBrain.checkAnswer();
+                    drugQuizBrain.nextQuestion();
+                  });
+                },
+                child: Container(
+                  margin: EdgeInsets.all(15.0),
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                    color: Colors.white,
+                    style: BorderStyle.solid,
+                    width: 3.0,
+                  )),
+                  height: 50.0,
+                  child: Center(
+                    child: Text(drugQuizBrain.getWrongAnswers()[0].toString(),
+                        style: TextStyle(
                           color: Colors.white,
-                          style: BorderStyle.solid,
-                          width: 3.0,
                         )),
-                        height: 50.0,
-                        child: Center(
-                          child: Text(
-                              drugQuizBrain.getWrongAnswers()[0].toString(),
-                              style: TextStyle(
-                                color: Colors.white,
-                              )),
-                        ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    drugQuizBrain.pickedTwo();
+                    drugQuizBrain.checkAnswer();
+                    drugQuizBrain.nextQuestion();
+                  });
+                },
+                child: Container(
+                  margin: EdgeInsets.all(15.0),
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                    color: Colors.white,
+                    style: BorderStyle.solid,
+                    width: 3.0,
+                  )),
+                  height: 50.0,
+                  child: Center(
+                    child: Text(
+                      drugQuizBrain.getWrongAnswers()[1].toString(),
+                      style: TextStyle(
+                        color: Colors.white,
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          drugQuizBrain.pickedTwo();
-                          drugQuizBrain.checkAnswer();
-                          drugQuizBrain.nextQuestion();
-                        });
-                      },
-                      child: Container(
-                        margin: EdgeInsets.all(15.0),
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                          color: Colors.white,
-                          style: BorderStyle.solid,
-                          width: 3.0,
-                        )),
-                        height: 50.0,
-                        child: Center(
-                          child: Text(
-                            drugQuizBrain.getWrongAnswers()[1].toString(),
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    drugQuizBrain.pickedThree();
+                    drugQuizBrain.checkAnswer();
+                    drugQuizBrain.nextQuestion();
+                  });
+                },
+                child: Container(
+                  margin: EdgeInsets.all(15.0),
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                    color: Colors.white,
+                    style: BorderStyle.solid,
+                    width: 3.0,
+                  )),
+                  height: 50.0,
+                  child: Center(
+                    child: Text(
+                      drugQuizBrain.getWrongAnswers()[2].toString(),
+                      style: TextStyle(
+                        color: Colors.white,
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          drugQuizBrain.pickedThree();
-                          drugQuizBrain.checkAnswer();
-                          drugQuizBrain.nextQuestion();
-                        });
-                      },
-                      child: Container(
-                        margin: EdgeInsets.all(15.0),
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                          color: Colors.white,
-                          style: BorderStyle.solid,
-                          width: 3.0,
-                        )),
-                        height: 50.0,
-                        child: Center(
-                          child: Text(
-                            drugQuizBrain.getWrongAnswers()[2].toString(),
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ],

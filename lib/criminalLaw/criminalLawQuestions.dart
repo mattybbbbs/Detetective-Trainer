@@ -1,30 +1,23 @@
 import 'package:flutter/material.dart';
-import 'assaultQuestionBank.dart';
+import 'criminalLawQuestionBank.dart';
 
-AssaultQuizBrain assaultQuizBrain = AssaultQuizBrain();
+CriminalLawQuizBrain criminalLawQuizBrain = CriminalLawQuizBrain();
 
-class Assaults extends StatefulWidget {
+class CriminalLaw extends StatefulWidget {
   @override
-  _AssaultsState createState() => _AssaultsState();
+  _CriminalLawState createState() => _CriminalLawState();
 }
 
-class _AssaultsState extends State<Assaults> {
+class _CriminalLawState extends State<CriminalLaw> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Offences against the person'),
-        //ToDo: Add pic and hero animation
+        title: Text('Criminal Law'),
       ),
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
-              color: Color.fromRGBO(
-            37,
-            45,
-            75,
-            1.0,
-          )),
+          decoration: BoxDecoration(color: Color.fromRGBO(37, 45, 75, 1.0)),
           child: ListView(
             scrollDirection: Axis.vertical,
             children: [
@@ -32,15 +25,14 @@ class _AssaultsState extends State<Assaults> {
                 margin: EdgeInsets.all(15.0),
                 height: 200.0,
                 decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.white,
-                    style: BorderStyle.solid,
-                    width: 3.0,
-                  ),
-                ),
+                    border: Border.all(
+                  color: Colors.white,
+                  style: BorderStyle.solid,
+                  width: 3.0,
+                )),
                 child: Center(
                   child: Text(
-                    assaultQuizBrain.getQuestionText(),
+                    criminalLawQuizBrain.getQuestionText(),
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -50,35 +42,37 @@ class _AssaultsState extends State<Assaults> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedOne();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    criminalLawQuizBrain.pickedTwo();
+                    criminalLawQuizBrain.checkAnswer();
+                    criminalLawQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
                   margin: EdgeInsets.all(15.0),
                   decoration: BoxDecoration(
-                      border: Border.all(
-                    color: Colors.white,
-                    style: BorderStyle.solid,
-                    width: 3.0,
-                  )),
+                    border: Border.all(
+                      color: Colors.white,
+                      style: BorderStyle.solid,
+                      width: 3.0,
+                    ),
+                  ),
                   height: 50.0,
                   child: Center(
-                    child:
-                        Text(assaultQuizBrain.getWrongAnswers()[0].toString(),
-                            style: TextStyle(
-                              color: Colors.white,
-                            )),
+                    child: Text(
+                      criminalLawQuizBrain.getWrongAnswers()[0].toString(),
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
               ),
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedTwo();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    criminalLawQuizBrain.pickedTwo();
+                    criminalLawQuizBrain.checkAnswer();
+                    criminalLawQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -92,7 +86,7 @@ class _AssaultsState extends State<Assaults> {
                   height: 50.0,
                   child: Center(
                     child: Text(
-                      assaultQuizBrain.getWrongAnswers()[1].toString(),
+                      criminalLawQuizBrain.getWrongAnswers()[1].toString(),
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -103,9 +97,9 @@ class _AssaultsState extends State<Assaults> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedThree();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    criminalLawQuizBrain.pickedThree();
+                    criminalLawQuizBrain.checkAnswer();
+                    criminalLawQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -119,14 +113,14 @@ class _AssaultsState extends State<Assaults> {
                   height: 50.0,
                   child: Center(
                     child: Text(
-                      assaultQuizBrain.getWrongAnswers()[2].toString(),
+                      criminalLawQuizBrain.getWrongAnswers()[2].toString(),
                       style: TextStyle(
                         color: Colors.white,
                       ),
                     ),
                   ),
                 ),
-              ),
+              )
             ],
           ),
         ),

@@ -1,18 +1,22 @@
-import 'package:detective_trainer/main.dart';
-import 'package:detective_trainer/drugs/drugResults.dart';
 import 'package:flutter/material.dart';
-import '../main.dart';
 import '../questionModel.dart';
+import '../results.dart';
+import '../main.dart';
+import 'package:detective_trainer/globals.dart';
 
 class AssaultQuizBrain {
-  int questionNumber = 0;
-  int score = 0;
   String pickedAnswer = "";
 
   List<Question> _assaultQuestionBank = [
+    //ToDO: Add proper questions
     Question('Question 1', ['A', 'B', 'C'], 'A'),
-    Question('Question 2', ['D', 'E', 'F'], 'F'),
+    Question('Question 2', ['D', 'E', 'F'], 'E'),
+    Question('Question 3', ['G', 'H', 'I'], 'I')
   ];
+
+  void assaultShuffle() {
+    _assaultQuestionBank.shuffle();
+  }
 
   void nextQuestion() {
     if (questionNumber < _assaultQuestionBank.length - 1) {
@@ -39,8 +43,10 @@ class AssaultQuizBrain {
   checkAnswer() {
     if (_assaultQuestionBank[questionNumber].correctAnswer == pickedAnswer) {
       score++;
+      //ToDO: Give positive feedback
       print(score);
     } else {
+      //ToDO: Provide correct answer and negative feedback
       print(score);
     }
   }

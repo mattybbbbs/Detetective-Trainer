@@ -1,30 +1,25 @@
 import 'package:flutter/material.dart';
-import 'assaultQuestionBank.dart';
+import 'robberyQuestionBank.dart';
 
-AssaultQuizBrain assaultQuizBrain = AssaultQuizBrain();
+RobberyQuizBrain robberyQuizBrain = RobberyQuizBrain();
 
-class Assaults extends StatefulWidget {
+class Robbery extends StatefulWidget {
   @override
-  _AssaultsState createState() => _AssaultsState();
+  _RobberyState createState() => _RobberyState();
 }
 
-class _AssaultsState extends State<Assaults> {
+class _RobberyState extends State<Robbery> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Offences against the person'),
+        backgroundColor: Colors.red[900],
+        title: Text('Property and Robbery'),
         //ToDo: Add pic and hero animation
       ),
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
-              color: Color.fromRGBO(
-            37,
-            45,
-            75,
-            1.0,
-          )),
+          decoration: BoxDecoration(color: Color.fromRGBO(75, 38, 45, 1.0)),
           child: ListView(
             scrollDirection: Axis.vertical,
             children: [
@@ -40,7 +35,7 @@ class _AssaultsState extends State<Assaults> {
                 ),
                 child: Center(
                   child: Text(
-                    assaultQuizBrain.getQuestionText(),
+                    robberyQuizBrain.getQuestionText(),
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -50,9 +45,9 @@ class _AssaultsState extends State<Assaults> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedOne();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    robberyQuizBrain.pickedOne();
+                    robberyQuizBrain.checkAnswer();
+                    robberyQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -66,7 +61,7 @@ class _AssaultsState extends State<Assaults> {
                   height: 50.0,
                   child: Center(
                     child:
-                        Text(assaultQuizBrain.getWrongAnswers()[0].toString(),
+                        Text(robberyQuizBrain.getWrongAnswers()[0].toString(),
                             style: TextStyle(
                               color: Colors.white,
                             )),
@@ -76,9 +71,9 @@ class _AssaultsState extends State<Assaults> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedTwo();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    robberyQuizBrain.pickedTwo();
+                    robberyQuizBrain.checkAnswer();
+                    robberyQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -92,7 +87,7 @@ class _AssaultsState extends State<Assaults> {
                   height: 50.0,
                   child: Center(
                     child: Text(
-                      assaultQuizBrain.getWrongAnswers()[1].toString(),
+                      robberyQuizBrain.getWrongAnswers()[1].toString(),
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -103,9 +98,9 @@ class _AssaultsState extends State<Assaults> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    assaultQuizBrain.pickedThree();
-                    assaultQuizBrain.checkAnswer();
-                    assaultQuizBrain.nextQuestion();
+                    robberyQuizBrain.pickedThree();
+                    robberyQuizBrain.checkAnswer();
+                    robberyQuizBrain.nextQuestion();
                   });
                 },
                 child: Container(
@@ -119,7 +114,7 @@ class _AssaultsState extends State<Assaults> {
                   height: 50.0,
                   child: Center(
                     child: Text(
-                      assaultQuizBrain.getWrongAnswers()[2].toString(),
+                      robberyQuizBrain.getWrongAnswers()[2].toString(),
                       style: TextStyle(
                         color: Colors.white,
                       ),
