@@ -111,7 +111,7 @@ class IncidentQuizBrain {
         'True') 
   ];
 
-  BuildContext get context => null;
+  // BuildContext get context => null;
 
   void incidentShuffle() {
     _incidentQuestionBank.shuffle();

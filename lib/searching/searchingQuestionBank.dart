@@ -52,6 +52,17 @@ class SearchingQuizBrain {
     }
   }
 
+  Icon feedbackIcon() {
+    if (_searchingQuestionBank[questionNumber - 1].correctAnswer == pickedAnswer) {
+      return Icon(Icons.check_circle_rounded,
+                color: Colors.green,);
+
+    } else {
+      return Icon(Icons.cancel_rounded,
+          color: Colors.red,);
+    }
+  }
+
   String getQuestionText() {
     return _searchingQuestionBank[questionNumber].questionText;
   }
@@ -63,4 +74,13 @@ class SearchingQuizBrain {
   String getCorrectAnswer() {
     return _searchingQuestionBank[questionNumber].correctAnswer;
   }
+
+  String correctAnswerForSnack() {
+    return _searchingQuestionBank[questionNumber - 1].correctAnswer;
+  }
+
+  int magicNumber() {
+    return _searchingQuestionBank.length - 1;
+  }
+
 }

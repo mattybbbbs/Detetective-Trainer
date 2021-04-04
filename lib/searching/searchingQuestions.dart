@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'searchingQuestionBank.dart';
+import 'package:detective_trainer/globals.dart';
 
 SearchingQuizBrain searchingQuizBrain = SearchingQuizBrain();
 
@@ -30,18 +31,20 @@ class _SearchingState extends State<Searching> {
             children: [
               Container(
                 margin: EdgeInsets.all(15.0),
-                height: 200.0,
+                height: 175.0,
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.white,
                     style: BorderStyle.solid,
-                    width: 3.0,
+                    width: 2.0,
                   ),
                 ),
                 child: Center(
                   child: Text(
                     searchingQuizBrain.getQuestionText(),
+                    textAlign: TextAlign.center,
                     style: TextStyle(
+                      fontSize: 18.0,
                       color: Colors.white,
                     ),
                   ),
@@ -53,6 +56,16 @@ class _SearchingState extends State<Searching> {
                     searchingQuizBrain.pickedOne();
                     searchingQuizBrain.checkAnswer();
                     searchingQuizBrain.nextQuestion();
+                    if (questionNumber < searchingQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: searchingQuizBrain.feedbackIcon(),
+                        ),
+                        Flexible(child: Text(searchingQuizBrain.correctAnswerForSnack()),)
+                      ]),
+                      duration: Duration(seconds: 3),));
+                    }
                   });
                 },
                 child: Container(
@@ -61,13 +74,15 @@ class _SearchingState extends State<Searching> {
                       border: Border.all(
                     color: Colors.white,
                     style: BorderStyle.solid,
-                    width: 3.0,
+                    width: 2.0,
                   )),
-                  height: 50.0,
+                  height: 100.0,
                   child: Center(
                     child:
                         Text(searchingQuizBrain.getWrongAnswers()[0].toString(),
+                        textAlign: TextAlign.center,
                             style: TextStyle(
+                              fontSize: 15.0,
                               color: Colors.white,
                             )),
                   ),
@@ -79,6 +94,18 @@ class _SearchingState extends State<Searching> {
                     searchingQuizBrain.pickedTwo();
                     searchingQuizBrain.checkAnswer();
                     searchingQuizBrain.nextQuestion();
+                    if (questionNumber < searchingQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: searchingQuizBrain.feedbackIcon(),
+                      ),
+                      Flexible(child: Text(searchingQuizBrain.correctAnswerForSnack()))
+                    ],
+                    ),
+                    duration: Duration(seconds: 3),
+                    ));
+                    }
                   });
                 },
                 child: Container(
@@ -87,14 +114,16 @@ class _SearchingState extends State<Searching> {
                       border: Border.all(
                     color: Colors.white,
                     style: BorderStyle.solid,
-                    width: 3.0,
+                    width: 2.0,
                   )),
-                  height: 50.0,
+                  height: 100.0,
                   child: Center(
                     child: Text(
                       searchingQuizBrain.getWrongAnswers()[1].toString(),
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
+                        fontSize: 15.0,
                       ),
                     ),
                   ),
@@ -106,22 +135,39 @@ class _SearchingState extends State<Searching> {
                     searchingQuizBrain.pickedThree();
                     searchingQuizBrain.checkAnswer();
                     searchingQuizBrain.nextQuestion();
+                    if (questionNumber < searchingQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: searchingQuizBrain.feedbackIcon(),
+                      ),
+                      Flexible(child: Text(searchingQuizBrain.correctAnswerForSnack()))
+                    ],),
+                    duration: Duration(seconds: 3),
+                    )
+                    );
+                    }
                   });
                 },
-                child: Container(
-                  margin: EdgeInsets.all(15.0),
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                    color: Colors.white,
-                    style: BorderStyle.solid,
-                    width: 3.0,
-                  )),
-                  height: 50.0,
-                  child: Center(
-                    child: Text(
-                      searchingQuizBrain.getWrongAnswers()[2].toString(),
-                      style: TextStyle(
-                        color: Colors.white,
+                child: Visibility(
+                  visible: searchingQuizBrain.getWrongAnswers()[2].toString() != "",
+                                  child: Container(
+                    margin: EdgeInsets.all(15.0),
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                      color: Colors.white,
+                      style: BorderStyle.solid,
+                      width: 2.0,
+                    )),
+                    height: 100.0,
+                    child: Center(
+                      child: Text(
+                        searchingQuizBrain.getWrongAnswers()[2].toString(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
