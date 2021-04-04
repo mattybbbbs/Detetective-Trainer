@@ -51,6 +51,16 @@ class MechanicsQuizBrain {
     }
   }
 
+  Icon feedbackIcon() {
+    if (_mechanicsQuestionBank[questionNumber - 1].correctAnswer == pickedAnswer) {
+      return Icon(Icons.check_circle_rounded,
+      color: Colors.green,);
+    } else {
+      return Icon(Icons.cancel_rounded,
+      color: Colors.red,);
+    }
+  }
+
   String getQuestionText() {
     return _mechanicsQuestionBank[questionNumber].questionText;
   }
@@ -61,5 +71,13 @@ class MechanicsQuizBrain {
 
   String getCorrectAnswer() {
     return _mechanicsQuestionBank[questionNumber].correctAnswer;
+  }
+
+  String correctAnswerForSnack() {
+    return _mechanicsQuestionBank[questionNumber - 1].correctAnswer;
+  }
+
+  int magicNumber() {
+    return _mechanicsQuestionBank.length -1;
   }
 }

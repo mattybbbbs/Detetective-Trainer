@@ -1,4 +1,3 @@
-
 import 'package:detective_trainer/globals.dart';
 import 'package:flutter/material.dart';
 import 'incidentManagementQuestionBank.dart';
@@ -28,10 +27,8 @@ class _IncidentState extends State<Incident> {
             1.0,
           )),
           child: ListView(
-            
             scrollDirection: Axis.vertical,
             children: [
-              
               Container(
                 margin: EdgeInsets.all(15.0),
                 height: 175.0,

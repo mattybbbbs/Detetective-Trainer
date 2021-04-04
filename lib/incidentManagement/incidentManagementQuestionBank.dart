@@ -122,7 +122,6 @@ class IncidentQuizBrain {
       questionNumber++;
     } else {
       navigatorKey.currentState.push(MaterialPageRoute(
-        
         builder: (context) => ResultsPage(),
       ));
     }
