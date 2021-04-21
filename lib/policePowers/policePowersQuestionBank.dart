@@ -44,11 +44,21 @@ class PolicePowersQuizBrain {
     if (_policePowersQuestionBank[questionNumber].correctAnswer ==
         pickedAnswer) {
       score++;
-      //ToDO: Give positive feedback
+      
       print(score);
     } else {
-      //ToDO: Provide correct answer and negative feedback
       print(score);
+    }
+  }
+
+  Icon feedbackIcon() {
+    if (_policePowersQuestionBank[questionNumber - 1].correctAnswer == pickedAnswer) {
+      return Icon(Icons.check_circle_rounded,
+      color: Colors.green,);
+    }
+    else{
+      return Icon(Icons.cancel_rounded,
+      color: Colors.red,);
     }
   }
 
@@ -63,4 +73,13 @@ class PolicePowersQuizBrain {
   String getCorrectAnswer() {
     return _policePowersQuestionBank[questionNumber].correctAnswer;
   }
+
+  String correctAnswerForSnack(){
+    return _policePowersQuestionBank[questionNumber -1].correctAnswer;
+  }
+
+  int magicNumber() {
+    return _policePowersQuestionBank.length - 1;
+  }
+
 }
