@@ -44,13 +44,26 @@ class OffenderIdQuizBrain {
   checkAnswer() {
     if (_offenderIdQuestionBank[questionNumber].correctAnswer == pickedAnswer) {
       score++;
-      //ToDO: Give positive feedback
+      
       print(score);
     } else {
-      //ToDO: Provide correct answer and negative feedback
+     
       print(score);
     }
   }
+
+  Icon feedbackIcon() {
+    if (_offenderIdQuestionBank[questionNumber -1].correctAnswer == pickedAnswer) {
+      return Icon(Icons.check_circle_rounded,
+      color: Colors.green,);
+
+      }
+      else {
+        return Icon(Icons.cancel_rounded,
+        color: Colors.red,);
+      }
+    }
+  
 
   String getQuestionText() {
     return _offenderIdQuestionBank[questionNumber].questionText;
@@ -62,5 +75,13 @@ class OffenderIdQuizBrain {
 
   String getCorrectAnswer() {
     return _offenderIdQuestionBank[questionNumber].correctAnswer;
+  }
+
+  String correctAnswerForSnack() {
+    return _offenderIdQuestionBank[questionNumber -1].correctAnswer;
+  }
+
+  int magicNumber() {
+    return _offenderIdQuestionBank.length -1;
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'offenderIDQuestionBank.dart';
+import 'package:detective_trainer/globals.dart';
 
 OffenderIdQuizBrain offenderIdQuizBrain = OffenderIdQuizBrain();
 
@@ -30,18 +32,20 @@ class _OffenderIdState extends State<OffenderId> {
             children: [
               Container(
                 margin: EdgeInsets.all(15.0),
-                height: 200.0,
+                height: 175.0,
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.white,
                     style: BorderStyle.solid,
-                    width: 3.0,
+                    width: 2.0,
                   ),
                 ),
                 child: Center(
                   child: Text(
                     offenderIdQuizBrain.getQuestionText(),
+                    textAlign: TextAlign.center,
                     style: TextStyle(
+                      fontSize: 18.0,
                       color: Colors.white,
                     ),
                   ),
@@ -53,6 +57,17 @@ class _OffenderIdState extends State<OffenderId> {
                     offenderIdQuizBrain.pickedOne();
                     offenderIdQuizBrain.checkAnswer();
                     offenderIdQuizBrain.nextQuestion();
+                    if (questionNumber < offenderIdQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: offenderIdQuizBrain.feedbackIcon(),
+                        ),
+                        Flexible(child: Text(offenderIdQuizBrain.correctAnswerForSnack()))
+                      ],),
+                      duration: Duration(seconds: 3),
+                      ));
+                    }
                   });
                 },
                 child: Container(
@@ -61,13 +76,15 @@ class _OffenderIdState extends State<OffenderId> {
                       border: Border.all(
                     color: Colors.white,
                     style: BorderStyle.solid,
-                    width: 3.0,
+                    width: 2.0,
                   )),
-                  height: 50.0,
+                  height: 100.0,
                   child: Center(
                     child: Text(
                         offenderIdQuizBrain.getWrongAnswers()[0].toString(),
+                        textAlign: TextAlign.center,
                         style: TextStyle(
+                          fontSize: 15.0,
                           color: Colors.white,
                         )),
                   ),
@@ -79,6 +96,17 @@ class _OffenderIdState extends State<OffenderId> {
                     offenderIdQuizBrain.pickedTwo();
                     offenderIdQuizBrain.checkAnswer();
                     offenderIdQuizBrain.nextQuestion();
+                    if (questionNumber < offenderIdQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: offenderIdQuizBrain.feedbackIcon(),
+                        ),
+                        Flexible(child: Text(offenderIdQuizBrain.correctAnswerForSnack()))
+                      ],),
+                      duration: Duration(seconds: 3),
+                      ));
+                    }
                   });
                 },
                 child: Container(
@@ -87,14 +115,16 @@ class _OffenderIdState extends State<OffenderId> {
                       border: Border.all(
                     color: Colors.white,
                     style: BorderStyle.solid,
-                    width: 3.0,
+                    width: 2.0,
                   )),
-                  height: 50.0,
+                  height: 100.0,
                   child: Center(
                     child: Text(
                       offenderIdQuizBrain.getWrongAnswers()[1].toString(),
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
+                        fontSize: 15.0,
                       ),
                     ),
                   ),
@@ -106,8 +136,22 @@ class _OffenderIdState extends State<OffenderId> {
                     offenderIdQuizBrain.pickedThree();
                     offenderIdQuizBrain.checkAnswer();
                     offenderIdQuizBrain.nextQuestion();
+                    if (questionNumber < offenderIdQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: offenderIdQuizBrain.feedbackIcon(),
+                        ),
+                        Flexible(child: Text(offenderIdQuizBrain.correctAnswerForSnack()))
+                      ],),
+                      duration: Duration(seconds: 3),
+                      ));
+                    }
                   });
                 },
+                child: Visibility(
+                  visible: offenderIdQuizBrain.getWrongAnswers()[2].toString() != "",
+                
                 child: Container(
                   margin: EdgeInsets.all(15.0),
                   decoration: BoxDecoration(
@@ -126,6 +170,7 @@ class _OffenderIdState extends State<OffenderId> {
                     ),
                   ),
                 ),
+              ),
               ),
             ],
           ),

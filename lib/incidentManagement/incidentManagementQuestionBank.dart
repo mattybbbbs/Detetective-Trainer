@@ -181,6 +181,8 @@ class IncidentQuizBrain {
     return _incidentQuestionBank.length - 1;
   }
 
+  
+
   }
   
 
