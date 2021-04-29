@@ -52,11 +52,29 @@ class CriminalLawQuizBrain {
     }
   }
 
+  Icon feedbackIcon() {
+    if (_criminalLawQuestionBank[questionNumber - 1].correctAnswer == pickedAnswer) {
+      return Icon(Icons.check_circle_rounded,
+      color: Colors.green,);
+    } else {
+      return Icon(Icons.cancel_rounded,
+      color: Colors.red);
+    }
+  }
+
   List getWrongAnswers() {
     return _criminalLawQuestionBank[questionNumber].questionAnswers;
   }
 
   String getCorrectAnswer() {
     return _criminalLawQuestionBank[questionNumber].correctAnswer;
+  }
+
+  String correctAnswerForSnack() {
+    return _criminalLawQuestionBank[questionNumber - 1].correctAnswer;
+  }
+
+  int magicNumber() {
+    return _criminalLawQuestionBank.length - 1;
   }
 }

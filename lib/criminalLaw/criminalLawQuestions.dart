@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'criminalLawQuestionBank.dart';
+import 'package:detective_trainer/globals.dart';
 
 CriminalLawQuizBrain criminalLawQuizBrain = CriminalLawQuizBrain();
 
@@ -23,17 +24,19 @@ class _CriminalLawState extends State<CriminalLaw> {
             children: [
               Container(
                 margin: EdgeInsets.all(15.0),
-                height: 200.0,
+                height: 175.0,
                 decoration: BoxDecoration(
                     border: Border.all(
                   color: Colors.white,
                   style: BorderStyle.solid,
-                  width: 3.0,
+                  width: 2.0,
                 )),
                 child: Center(
                   child: Text(
                     criminalLawQuizBrain.getQuestionText(),
+                    textAlign: TextAlign.center,
                     style: TextStyle(
+                      fontSize: 18.0,
                       color: Colors.white,
                     ),
                   ),
@@ -45,6 +48,17 @@ class _CriminalLawState extends State<CriminalLaw> {
                     criminalLawQuizBrain.pickedTwo();
                     criminalLawQuizBrain.checkAnswer();
                     criminalLawQuizBrain.nextQuestion();
+                    if (questionNumber < criminalLawQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: criminalLawQuizBrain.feedbackIcon(),
+                        ),
+                        Flexible(child: Text(criminalLawQuizBrain.correctAnswerForSnack()))
+                      ],),
+                      duration: Duration(seconds: 3),
+                      ));
+                    }
                   });
                 },
                 child: Container(
@@ -53,14 +67,16 @@ class _CriminalLawState extends State<CriminalLaw> {
                     border: Border.all(
                       color: Colors.white,
                       style: BorderStyle.solid,
-                      width: 3.0,
+                      width: 2.0,
                     ),
                   ),
-                  height: 50.0,
+                  height: 100.0,
                   child: Center(
                     child: Text(
                       criminalLawQuizBrain.getWrongAnswers()[0].toString(),
+                      textAlign: TextAlign.center,
                       style: TextStyle(
+                        fontSize: 15.0,
                         color: Colors.white,
                       ),
                     ),
@@ -73,6 +89,17 @@ class _CriminalLawState extends State<CriminalLaw> {
                     criminalLawQuizBrain.pickedTwo();
                     criminalLawQuizBrain.checkAnswer();
                     criminalLawQuizBrain.nextQuestion();
+                    if (questionNumber < criminalLawQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: criminalLawQuizBrain.feedbackIcon(),
+                        ),
+                        Flexible(child: Text(criminalLawQuizBrain.correctAnswerForSnack()))
+                      ],),
+                      duration: Duration(seconds: 3),
+                      ));
+                    }
                   });
                 },
                 child: Container(
@@ -81,14 +108,16 @@ class _CriminalLawState extends State<CriminalLaw> {
                       border: Border.all(
                     color: Colors.white,
                     style: BorderStyle.solid,
-                    width: 3.0,
+                    width: 2.0,
                   )),
-                  height: 50.0,
+                  height: 100.0,
                   child: Center(
                     child: Text(
                       criminalLawQuizBrain.getWrongAnswers()[1].toString(),
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
+                        fontSize: 15.0,
                       ),
                     ),
                   ),
@@ -100,22 +129,38 @@ class _CriminalLawState extends State<CriminalLaw> {
                     criminalLawQuizBrain.pickedThree();
                     criminalLawQuizBrain.checkAnswer();
                     criminalLawQuizBrain.nextQuestion();
+                    if (questionNumber < criminalLawQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: criminalLawQuizBrain.feedbackIcon(),
+                        ),
+                        Flexible(child: Text(criminalLawQuizBrain.correctAnswerForSnack()))
+                      ],),
+                      duration: Duration(seconds: 3),
+                      ));
+                    }
                   });
                 },
-                child: Container(
-                  margin: EdgeInsets.all(15.0),
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                    color: Colors.white,
-                    style: BorderStyle.solid,
-                    width: 3.0,
-                  )),
-                  height: 50.0,
-                  child: Center(
-                    child: Text(
-                      criminalLawQuizBrain.getWrongAnswers()[2].toString(),
-                      style: TextStyle(
-                        color: Colors.white,
+                child: Visibility(
+                  visible: criminalLawQuizBrain.getWrongAnswers()[2].toString() != "",
+                                  child: Container(
+                    margin: EdgeInsets.all(15.0),
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                      color: Colors.white,
+                      style: BorderStyle.solid,
+                      width: 2.0,
+                    )),
+                    height: 100.0,
+                    child: Center(
+                      child: Text(
+                        criminalLawQuizBrain.getWrongAnswers()[2].toString(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),

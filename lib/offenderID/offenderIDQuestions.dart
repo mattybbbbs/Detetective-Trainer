@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'offenderIDQuestionBank.dart';
 import 'package:detective_trainer/globals.dart';
 
