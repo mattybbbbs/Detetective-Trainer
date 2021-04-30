@@ -44,11 +44,21 @@ class DrugQuizBrain {
   checkAnswer() {
     if (_drugQuestionBank[questionNumber].correctAnswer == pickedAnswer) {
       score++;
-      //ToDO: Give positive feedback
+      
       print(score);
     } else {
-      //ToDO: Provide correct answer and negative feedback
+      
       print(score);
+    }
+  }
+
+  Icon feedbackIcon() {
+    if (_drugQuestionBank[questionNumber -1].correctAnswer == pickedAnswer) {
+      return Icon(Icons.check_circle_rounded,
+      color: Colors.green,);
+    } else {
+      return Icon(Icons.cancel_rounded,
+      color: Colors.red,);
     }
   }
 
@@ -62,5 +72,13 @@ class DrugQuizBrain {
 
   String getCorrectAnswer() {
     return _drugQuestionBank[questionNumber].correctAnswer;
+  }
+
+  String correctAnswerForSnack() {
+    return _drugQuestionBank[questionNumber -1].correctAnswer;
+  }
+
+  int magicNumber() {
+    return _drugQuestionBank.length -1;
   }
 }

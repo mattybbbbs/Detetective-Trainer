@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:detective_trainer/globals.dart';
 import 'package:detective_trainer/objections/objectionsQuestionBank.dart';
 
 ObjectionsQuizBrain objectionsQuizBrain = ObjectionsQuizBrain();
@@ -30,18 +31,20 @@ class _ObjectionsState extends State<Objections> {
             children: [
               Container(
                 margin: EdgeInsets.all(15.0),
-                height: 200.0,
+                height: 175.0,
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.white,
                     style: BorderStyle.solid,
-                    width: 3.0,
+                    width: 2.0,
                   ),
                 ),
                 child: Center(
                   child: Text(
                     objectionsQuizBrain.getQuestionText(),
+                    textAlign: TextAlign.center,
                     style: TextStyle(
+                      fontSize: 18.0,
                       color: Colors.white,
                     ),
                   ),
@@ -53,6 +56,14 @@ class _ObjectionsState extends State<Objections> {
                     objectionsQuizBrain.pickedOne();
                     objectionsQuizBrain.checkAnswer();
                     objectionsQuizBrain.nextQuestion();
+                    if (questionNumber < objectionsQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                        Padding(padding: const EdgeInsets.all(8.0),),
+                        Flexible(child: Text(objectionsQuizBrain.correctAnswerForSnack()))
+                      ]),
+                      duration: Duration(seconds: 3),
+                      ));
+                    }
                   });
                 },
                 child: Container(
@@ -61,13 +72,15 @@ class _ObjectionsState extends State<Objections> {
                       border: Border.all(
                     color: Colors.white,
                     style: BorderStyle.solid,
-                    width: 3.0,
+                    width: 2.0,
                   )),
-                  height: 50.0,
+                  height: 100.0,
                   child: Center(
                     child: Text(
                         objectionsQuizBrain.getWrongAnswers()[0].toString(),
+                        textAlign: TextAlign.center,
                         style: TextStyle(
+                          fontSize: 15.0,
                           color: Colors.white,
                         )),
                   ),
@@ -79,6 +92,14 @@ class _ObjectionsState extends State<Objections> {
                     objectionsQuizBrain.pickedTwo();
                     objectionsQuizBrain.checkAnswer();
                     objectionsQuizBrain.nextQuestion();
+                    if (questionNumber < objectionsQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                        Padding(padding: const EdgeInsets.all(8.0),),
+                        Flexible(child: Text(objectionsQuizBrain.correctAnswerForSnack()))
+                      ]),
+                      duration: Duration(seconds: 3),
+                      ));
+                    }
                   });
                 },
                 child: Container(
@@ -87,13 +108,15 @@ class _ObjectionsState extends State<Objections> {
                       border: Border.all(
                     color: Colors.white,
                     style: BorderStyle.solid,
-                    width: 3.0,
+                    width: 2.0,
                   )),
-                  height: 50.0,
+                  height: 100.0,
                   child: Center(
                     child: Text(
                       objectionsQuizBrain.getWrongAnswers()[1].toString(),
+                      textAlign: TextAlign.center,
                       style: TextStyle(
+                        fontSize: 15.0,
                         color: Colors.white,
                       ),
                     ),
@@ -106,22 +129,35 @@ class _ObjectionsState extends State<Objections> {
                     objectionsQuizBrain.pickedThree();
                     objectionsQuizBrain.checkAnswer();
                     objectionsQuizBrain.nextQuestion();
+                    if (questionNumber < objectionsQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                        Padding(padding: const EdgeInsets.all(8.0),),
+                        Flexible(child: Text(objectionsQuizBrain.correctAnswerForSnack()))
+                      ]),
+                      duration: Duration(seconds: 3),
+                      ));
+                    }
                   });
                 },
-                child: Container(
-                  margin: EdgeInsets.all(15.0),
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                    color: Colors.white,
-                    style: BorderStyle.solid,
-                    width: 3.0,
-                  )),
-                  height: 50.0,
-                  child: Center(
-                    child: Text(
-                      objectionsQuizBrain.getWrongAnswers()[2].toString(),
-                      style: TextStyle(
-                        color: Colors.white,
+                child: Visibility(
+                  visible: objectionsQuizBrain.getWrongAnswers()[2].toString() != "",
+                                  child: Container(
+                    margin: EdgeInsets.all(15.0),
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                      color: Colors.white,
+                      style: BorderStyle.solid,
+                      width: 2.0,
+                    )),
+                    height: 100.0,
+                    child: Center(
+                      child: Text(
+                        objectionsQuizBrain.getWrongAnswers()[2].toString(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
