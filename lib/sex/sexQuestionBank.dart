@@ -44,11 +44,22 @@ class SexQuizBrain {
   checkAnswer() {
     if (_sexQuestionBank[questionNumber].correctAnswer == pickedAnswer) {
       score++;
-      //ToDO: Give positive feedback
+      
       print(score);
     } else {
-      //ToDO: Provide correct answer and negative feedback
+      
       print(score);
+    }
+  }
+
+  Icon feedbackIcon() {
+    if (_sexQuestionBank[questionNumber - 1].correctAnswer == pickedAnswer) {
+      return Icon(Icons.check_circle_rounded,
+                color: Colors.green,);
+
+    } else {
+      return Icon(Icons.cancel_rounded,
+          color: Colors.red,);
     }
   }
 
@@ -63,4 +74,12 @@ class SexQuizBrain {
   String getCorrectAnswer() {
     return _sexQuestionBank[questionNumber].correctAnswer;
   }
+
+String correctAnswerForSnack() {
+    return _sexQuestionBank[questionNumber - 1].correctAnswer;
+  }
+
+  int magicNumber() {
+    return _sexQuestionBank.length - 1;
+  }  
 }

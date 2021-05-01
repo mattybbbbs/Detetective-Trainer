@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'fraudQuestionBank.dart';
+import 'package:detective_trainer/globals.dart';
 
 FraudQuizBrain fraudQuizBrain = FraudQuizBrain();
 
@@ -25,18 +26,20 @@ class _FraudState extends State<Fraud> {
             children: [
               Container(
                 margin: EdgeInsets.all(15.0),
-                height: 200.0,
+                height: 175.0,
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.white,
                     style: BorderStyle.solid,
-                    width: 3.0,
+                    width: 2.0,
                   ),
                 ),
                 child: Center(
                   child: Text(
                     fraudQuizBrain.getQuestionText(),
+                    textAlign: TextAlign.center,
                     style: TextStyle(
+                      fontSize: 18.0,
                       color: Colors.white,
                     ),
                   ),
@@ -48,6 +51,18 @@ class _FraudState extends State<Fraud> {
                     fraudQuizBrain.pickedOne();
                     fraudQuizBrain.checkAnswer();
                     fraudQuizBrain.nextQuestion();
+                     if (questionNumber < fraudQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: fraudQuizBrain.feedbackIcon(),
+                      ),
+                      Flexible(child: Text(fraudQuizBrain.correctAnswerForSnack()))
+                    ],
+                    ),
+                    duration: Duration(seconds: 3),
+                    ));
+                    }
                   });
                 },
                 child: Container(
@@ -56,12 +71,14 @@ class _FraudState extends State<Fraud> {
                       border: Border.all(
                     color: Colors.white,
                     style: BorderStyle.solid,
-                    width: 3.0,
+                    width: 2.0,
                   )),
-                  height: 50.0,
+                  height: 100.0,
                   child: Center(
                     child: Text(fraudQuizBrain.getWrongAnswers()[0].toString(),
+                    textAlign: TextAlign.center,
                         style: TextStyle(
+                          fontSize: 15.0,
                           color: Colors.white,
                         )),
                   ),
@@ -73,6 +90,18 @@ class _FraudState extends State<Fraud> {
                     fraudQuizBrain.pickedTwo();
                     fraudQuizBrain.checkAnswer();
                     fraudQuizBrain.nextQuestion();
+                    if (questionNumber < fraudQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: fraudQuizBrain.feedbackIcon(),
+                      ),
+                      Flexible(child: Text(fraudQuizBrain.correctAnswerForSnack()))
+                    ],
+                    ),
+                    duration: Duration(seconds: 3),
+                    ));
+                    }
                   });
                 },
                 child: Container(
@@ -81,13 +110,15 @@ class _FraudState extends State<Fraud> {
                       border: Border.all(
                     color: Colors.white,
                     style: BorderStyle.solid,
-                    width: 3.0,
+                    width: 2.0,
                   )),
-                  height: 50.0,
+                  height: 100.0,
                   child: Center(
                     child: Text(
                       fraudQuizBrain.getWrongAnswers()[1].toString(),
+                      textAlign: TextAlign.center,
                       style: TextStyle(
+                        fontSize: 15.0,
                         color: Colors.white,
                       ),
                     ),
@@ -100,22 +131,39 @@ class _FraudState extends State<Fraud> {
                     fraudQuizBrain.pickedThree();
                     fraudQuizBrain.checkAnswer();
                     fraudQuizBrain.nextQuestion();
+                    if (questionNumber < fraudQuizBrain.magicNumber()) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: fraudQuizBrain.feedbackIcon(),
+                      ),
+                      Flexible(child: Text(fraudQuizBrain.correctAnswerForSnack()))
+                    ],
+                    ),
+                    duration: Duration(seconds: 3),
+                    ));
+                    }
                   });
                 },
-                child: Container(
-                  margin: EdgeInsets.all(15.0),
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                    color: Colors.white,
-                    style: BorderStyle.solid,
-                    width: 3.0,
-                  )),
-                  height: 50.0,
-                  child: Center(
-                    child: Text(
-                      fraudQuizBrain.getWrongAnswers()[2].toString(),
-                      style: TextStyle(
-                        color: Colors.white,
+                child: Visibility(
+                  visible: fraudQuizBrain.getWrongAnswers()[2].toString() != "",
+                                  child: Container(
+                    margin: EdgeInsets.all(15.0),
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                      color: Colors.white,
+                      style: BorderStyle.solid,
+                      width: 2.0,
+                    )),
+                    height: 100.0,
+                    child: Center(
+                      child: Text(
+                        fraudQuizBrain.getWrongAnswers()[2].toString(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),

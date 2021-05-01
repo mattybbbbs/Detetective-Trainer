@@ -44,11 +44,22 @@ class HomicideQuizBrain {
   checkAnswer() {
     if (_homicideQuestionBank[questionNumber].correctAnswer == pickedAnswer) {
       score++;
-      //ToDO: Give positive feedback
+      
       print(score);
     } else {
-      //ToDO: Provide correct answer and negative feedback
+      
       print(score);
+    }
+  }
+
+  Icon feedbackIcon() {
+    if (_homicideQuestionBank[questionNumber - 1].correctAnswer == pickedAnswer) {
+      return Icon(Icons.check_circle_rounded,
+                color: Colors.green,);
+
+    } else {
+      return Icon(Icons.cancel_rounded,
+          color: Colors.red,);
     }
   }
 
@@ -62,5 +73,13 @@ class HomicideQuizBrain {
 
   String getCorrectAnswer() {
     return _homicideQuestionBank[questionNumber].correctAnswer;
+  }
+
+  String correctAnswerForSnack() {
+    return _homicideQuestionBank[questionNumber - 1].correctAnswer;
+  }
+
+  int magicNumber() {
+    return _homicideQuestionBank.length - 1;
   }
 }
