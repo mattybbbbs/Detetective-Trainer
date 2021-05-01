@@ -157,13 +157,15 @@ class _OffenderIdState extends State<OffenderId> {
                       border: Border.all(
                     color: Colors.white,
                     style: BorderStyle.solid,
-                    width: 3.0,
+                    width: 2.0,
                   )),
-                  height: 50.0,
+                  height: 100.0,
                   child: Center(
                     child: Text(
                       offenderIdQuizBrain.getWrongAnswers()[2].toString(),
+                      textAlign: TextAlign.center,
                       style: TextStyle(
+                        fontSize: 15.0,
                         color: Colors.white,
                       ),
                     ),
