@@ -14,7 +14,9 @@ class _MechanicsState extends State<Mechanics> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(37, 45, 75, 1.0),
         title: Text('Mechanics of Law'),
+        elevation: 0.0,
         //ToDo: Add pic and hero animation
       ),
       body: SafeArea(

@@ -15,6 +15,8 @@ class _DruginvestigationsState extends State<Druginvestigations> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(37, 45, 75, 1.0),
+        elevation: 0.0,
         title: Text('Drugs'),
         //ToDo: Add pic and hero animation
       ),

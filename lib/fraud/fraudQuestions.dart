@@ -14,8 +14,9 @@ class _FraudState extends State<Fraud> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red[900],
+        backgroundColor: Color.fromRGBO(37, 45, 75, 1.0),
         title: Text('Fraud'),
+        elevation: 0.0,
         //ToDo: Add pic and hero animation
       ),
       body: SafeArea(

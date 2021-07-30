@@ -1,6 +1,8 @@
 import 'package:detective_trainer/main.dart';
 import 'package:flutter/material.dart';
 import 'package:detective_trainer/globals.dart';
+import 'homescreen.dart';
+
 
 class ResultsPage extends StatefulWidget {
   @override
@@ -11,7 +13,7 @@ class _ResultsPageState extends State<ResultsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[900],
+      backgroundColor: Color.fromRGBO(48, 71, 94, 1.0),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -20,7 +22,7 @@ class _ResultsPageState extends State<ResultsPage> {
               Text(
                 'Result:',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Color.fromRGBO(221, 221, 221, 1.0),
                   fontSize: 75.0,
                 ),
               ),
@@ -30,21 +32,21 @@ class _ResultsPageState extends State<ResultsPage> {
                   Text(
                     score.toString(),
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Color.fromRGBO(221, 221, 221, 1.0),
                       fontSize: 50.0,
                     ),
                   ),
                   Text(
                     ' / ',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Color.fromRGBO(221, 221, 221, 1.0),
                       fontSize: 50.0,
                     ),
                   ),
                   Text(
                     questionNumberPlusOne.toString(),
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Color.fromRGBO(221, 221, 221, 1.0),
                       fontSize: 50.0,
                     ),
                   ),
@@ -57,22 +59,29 @@ class _ResultsPageState extends State<ResultsPage> {
                   Text(
                     percentageCorrect().round().toString(),
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Color.fromRGBO(221, 221, 221, 1.0),
                       fontSize: 50.0,
                     ),
                   ),
                   Text(
                     '%',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Color.fromRGBO(221, 221, 221, 1.0),
                       fontSize: 50.0,
                     ),
                   ),
                 ],
               ),
               FloatingActionButton.extended(
-                label: Text('RESTART'),
-                icon: Icon(Icons.replay),
+                backgroundColor: Color.fromRGBO(240, 84, 84, 1.0),
+                label: Text('HOME',
+                style: TextStyle(
+                  color: Color.fromRGBO(221, 221, 221, 1.0),
+                ),
+                
+                ),
+                icon: Icon(Icons.replay,
+                color: Color.fromRGBO(221, 221, 221, 1.0),),
                 onPressed: () {
                   score = 0;
                   // drugQuizBrain.score = 0;
@@ -80,7 +89,7 @@ class _ResultsPageState extends State<ResultsPage> {
                   // drugQuizBrain.drugShuffle();
 
                   navigatorKey.currentState.push(MaterialPageRoute(
-                    builder: (context) => Homescreen(),
+                    builder: (context) => HomeScreen(),
                   ));
                 },
               )

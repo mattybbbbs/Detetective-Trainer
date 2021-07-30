@@ -15,6 +15,8 @@ class _CriminalLawState extends State<CriminalLaw> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Criminal Law'),
+        backgroundColor: Color.fromRGBO(37, 45, 75, 1.0),
+        elevation: 0.0,
       ),
       body: SafeArea(
         child: Container(
