@@ -18,7 +18,7 @@ class MechanicsQuizBrain {
     Question('What is the leading case law on Aider', ['Borg v R', 'Stuart v R', 'Beck v R'], 'Beck v R'),
     Question('True or False? Under section 7(1)(c) - the aider - criminal responsibility only extends to the actual offence for which the aid is intentionally provided, not subsequent consequences', ['True', 'False', ''], 'True'),
     Question('What is the leading case law on Counsellor?', ['R v Wyles', 'Stuart v R', 'Borg v R'], 'Stuart v R'),
-    Question('True or False? Criminal liability under section 8 - offences committed in prosecution of common purpose require two or more persons to form a common intention to prosecute an unlawful purpose. In the prosecution of such purpose an offence is committed of such nature that its commission was a probable consequence', ['True', 'False', ''], 'True'),
+    Question('True or False? Offences committed in prosecution of common purpose require two or more persons to form a common intention to prosecute an unlawful purpose. In the prosecution of such purpose an offence is committed of such nature that its commission was a probable consequence', ['True', 'False', ''], 'True'),
     Question('What is the leading case law on s8 offences committed in prosecution of common purpose?', ['R v Wyles', 'Stuart v R', 'The Queen v Keenan'], 'The Queen v Keenan'),
     Question('True or False? s9 - Mode of execution immaterial means the counsellor is only criminally responsible for acts done by the doer when they follow the counsellors instructions exactly', ['True', 'False', ''], 'False'),
     Question('True or False? An accessory after the fact is someone who is criminally responsible because they knowingly assist another person who guilty of an offence in order for the person to escape punishment?', ['True', 'False', ''], 'True'),
@@ -29,15 +29,13 @@ class MechanicsQuizBrain {
     Question('True or False? Section 24 of the Criminal Code mistake of fact provides a defence for acts done under an honest and reasonable but mistaken belief?', ['True', 'False', ''], 'True'),
     Question('True or False? Section 25 of the Criminal Code extraordinary emergency provides a defence for acts done under circumstances of sudden or extraordinary emergencies.', ['True', 'False', ''], 'True'),
     Question('True or False? All persons are deemed to be of sound mind until the contrary is proved.', ['True', 'False', ''], 'True'),
-    Question('True of Flase? Section 27 of the Criminal Code insanity provides a defence that at the time of committing an offence the person was in such a state of mental disease to deprive the person of capacity to understand what the person was doing?', ['True', 'False', ''], 'True'),
+    Question('True of False? Section 27 of the Criminal Code insanity provides a defence that at the time of committing an offence the person was in such a state of mental disease to deprive the person of capacity to understand what the person was doing?', ['True', 'False', ''], 'True'),
     Question('True of False? Police can choose not the charge an offender if the offender has mental health issues citing section 27 - Insanity?', ['True', 'False', ''], 'False'),
     Question('True or False? Section 28 of the Criminal Code intoxication provides a defence for any person intoxicated or stupefied by alcohol or drugs?', ['True', 'False', ''], 'False'),
     Question('True or False? For an offender to rely on a defence of intoxication the offender must not have intentionally caused thier intoxication?', ['True', 'False', ''], 'True'),
     Question('True or False? A child under the age of 10 is not criminally responsible?', ['True', 'False', ''], 'True'),
     Question('True or False? A child who is 14 and older is criminally responsible?', ['True', 'False', ''], 'True'),
-    Question('A child is only criminally responsible if Police can prove the child had requisite capacity for what age group?', ['Less than 10 years old', '10 to 13 years old', '14 years and older'], '10 to 13 years old'),
-    
-
+    Question('A child is only criminally responsible if Police can prove the child had requisite capacity for what age group?', ['Less than 10 years old', '10 to 13 years old', '14 years and older'], '10 to 13 years old')
   ];
 
   void mechanicsShuffle() {
@@ -45,7 +43,7 @@ class MechanicsQuizBrain {
   }
 
   void nextQuestion() {
-    if (questionNumber < _mechanicsQuestionBank.length - 1) {
+    if (questionNumber < 9) {
       questionNumber++;
     } else {
       navigatorKey.currentState.push(MaterialPageRoute(
@@ -69,11 +67,11 @@ class MechanicsQuizBrain {
   checkAnswer() {
     if (_mechanicsQuestionBank[questionNumber].correctAnswer == pickedAnswer) {
       score++;
-      //ToDO: Give positive feedback
       print(score);
+      print(questionNumber);
     } else {
-      //ToDO: Provide correct answer and negative feedback
       print(score);
+      print(questionNumber);
     }
   }
 
@@ -103,7 +101,7 @@ class MechanicsQuizBrain {
     return _mechanicsQuestionBank[questionNumber - 1].correctAnswer;
   }
 
-  int magicNumber() {
-    return _mechanicsQuestionBank.length -1;
-  }
+  // int magicNumber() {
+  //   return _mechanicsQuestionBank.length -1;
+  // }
 }

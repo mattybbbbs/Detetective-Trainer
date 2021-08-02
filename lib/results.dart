@@ -44,7 +44,10 @@ class _ResultsPageState extends State<ResultsPage> {
                     ),
                   ),
                   Text(
-                    questionNumberPlusOne.toString(),
+                    '10',
+                    
+
+                    // questionNumberPlusOne.toString(),
                     style: TextStyle(
                       color: Color.fromRGBO(221, 221, 221, 1.0),
                       fontSize: 50.0,
@@ -83,14 +86,13 @@ class _ResultsPageState extends State<ResultsPage> {
                 icon: Icon(Icons.replay,
                 color: Color.fromRGBO(221, 221, 221, 1.0),),
                 onPressed: () {
-                  score = 0;
-                  // drugQuizBrain.score = 0;
-                  // drugQuizBrain.questionNumber = 0;
-                  // drugQuizBrain.drugShuffle();
-
-                  navigatorKey.currentState.push(MaterialPageRoute(
-                    builder: (context) => HomeScreen(),
-                  ));
+                  
+                  setState(() {
+                    score = 0;
+                    questionNumber = 0;
+                    navigatorKey.currentState.push(MaterialPageRoute(builder: (context) => HomeScreen(),));
+                  });
+                  
                 },
               )
             ],

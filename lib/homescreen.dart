@@ -19,7 +19,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -68,11 +73,20 @@ class HomeScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(15.0),
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Incident()));
-                          questionNumber = 0;
+                          setState(() {
+                            questionNumber = 0;
+                            
                           score = 0;
                           incidentQuizBrain.incidentShuffle();
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Incident()));
+                          });
+                          // questionNumber = 0;
+                          // score = 0;
+                          // incidentQuizBrain.incidentShuffle();
+                          // Navigator.push(context,
+                          //     MaterialPageRoute(builder: (context) => Incident()));
+                          
                         },
                         child: Container(
                           decoration: BoxDecoration(
@@ -113,11 +127,20 @@ class HomeScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(15.0),
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Mechanics()));
-                          questionNumber = 0;
+                          setState(() {
+                            questionNumber = 0;
+                          
                           score = 0;
                           mechanicsQuizBrain.mechanicsShuffle();
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Mechanics()));
+                          });
+                          // questionNumber = 0;
+                          // score = 0;
+                          // mechanicsQuizBrain.mechanicsShuffle();
+                          // Navigator.push(context,
+                          //     MaterialPageRoute(builder: (context) => Mechanics()));
+                          
                         },
                         child: Container(
                           decoration: BoxDecoration(

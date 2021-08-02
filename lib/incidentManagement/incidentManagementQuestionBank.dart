@@ -111,14 +111,12 @@ class IncidentQuizBrain {
         'True') 
   ];
 
-  // BuildContext get context => null;
-
   void incidentShuffle() {
     _incidentQuestionBank.shuffle();
   }
 
   void nextQuestion() {
-    if (questionNumber < _incidentQuestionBank.length - 1) {
+    if (questionNumber < 9) {
       questionNumber++;
     } else {
       navigatorKey.currentState.push(MaterialPageRoute(
@@ -143,10 +141,10 @@ class IncidentQuizBrain {
     if (_incidentQuestionBank[questionNumber].correctAnswer == pickedAnswer) {
       score++;
       print(score);
-
+      print(questionNumber);
     } else {
       print(score);
-
+      print(questionNumber);
     }
   }
 
@@ -177,12 +175,9 @@ class IncidentQuizBrain {
     return _incidentQuestionBank[questionNumber - 1].correctAnswer;
   }
 
-  int magicNumber() {
-    return _incidentQuestionBank.length - 1;
-  }
-
-  
-
+  // int magicNumber() {
+  //   return _incidentQuestionBank.length - 1;
+  // }
   }
   
 

@@ -14,8 +14,11 @@ class _MechanicsState extends State<Mechanics> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(37, 45, 75, 1.0),
-        title: Text('Mechanics of Law'),
+        backgroundColor: Color.fromRGBO(48, 71, 94, 1.0),
+        title: Text('Mechanics of Law',
+        style: TextStyle(
+          color: Color.fromRGBO(221, 221, 221, 1.0)
+        ),),
         elevation: 0.0,
         //ToDo: Add pic and hero animation
       ),
@@ -23,9 +26,9 @@ class _MechanicsState extends State<Mechanics> {
         child: Container(
           decoration: BoxDecoration(
               color: Color.fromRGBO(
-            37,
-            45,
-            75,
+            48,
+            71,
+            94,
             1.0,
           )),
           child: ListView(
@@ -33,10 +36,10 @@ class _MechanicsState extends State<Mechanics> {
             children: [
               Container(
                 margin: EdgeInsets.all(15.0),
-                height: 175.0,
+                height: 180.0,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.white,
+                    color: Color.fromRGBO(240, 84, 84, 1.0),
                     style: BorderStyle.solid,
                     width: 2.0,
                   ),
@@ -47,7 +50,7 @@ class _MechanicsState extends State<Mechanics> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 18.0,
-                      color: Colors.white,
+                      color: Color.fromRGBO(221, 221, 221, 1.0),
                     ),
                   ),
                 ),
@@ -58,7 +61,7 @@ class _MechanicsState extends State<Mechanics> {
                     mechanicsQuizBrain.pickedOne();
                     mechanicsQuizBrain.checkAnswer();
                     mechanicsQuizBrain.nextQuestion();
-                    if (questionNumber < mechanicsQuizBrain.magicNumber()) {
+                    if (questionNumber < 8) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -74,7 +77,7 @@ class _MechanicsState extends State<Mechanics> {
                   margin: EdgeInsets.all(15.0),
                   decoration: BoxDecoration(
                       border: Border.all(
-                    color: Colors.white,
+                    color: Color.fromRGBO(240, 84, 84, 1.0),
                     style: BorderStyle.solid,
                     width: 2.0,
                   )),
@@ -84,7 +87,7 @@ class _MechanicsState extends State<Mechanics> {
                         Text(mechanicsQuizBrain.getWrongAnswers()[0].toString(),
                             style: TextStyle(
                               fontSize: 15.0,
-                              color: Colors.white,
+                              color: Color.fromRGBO(221, 221, 221, 1.0),
                             )),
                   ),
                 ),
@@ -95,7 +98,7 @@ class _MechanicsState extends State<Mechanics> {
                     mechanicsQuizBrain.pickedTwo();
                     mechanicsQuizBrain.checkAnswer();
                     mechanicsQuizBrain.nextQuestion();
-                    if (questionNumber < mechanicsQuizBrain.magicNumber()) {
+                    if (questionNumber < 8) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -111,7 +114,7 @@ class _MechanicsState extends State<Mechanics> {
                   margin: EdgeInsets.all(15.0),
                   decoration: BoxDecoration(
                       border: Border.all(
-                    color: Colors.white,
+                    color: Color.fromRGBO(240, 84, 84, 1.0),
                     style: BorderStyle.solid,
                     width: 2.0,
                   )),
@@ -119,9 +122,10 @@ class _MechanicsState extends State<Mechanics> {
                   child: Center(
                     child: Text(
                       mechanicsQuizBrain.getWrongAnswers()[1].toString(),
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15.0,
-                        color: Colors.white,
+                        color: Color.fromRGBO(221, 221, 221, 1.0),
                       ),
                     ),
                   ),
@@ -133,7 +137,7 @@ class _MechanicsState extends State<Mechanics> {
                     mechanicsQuizBrain.pickedThree();
                     mechanicsQuizBrain.checkAnswer();
                     mechanicsQuizBrain.nextQuestion();
-                    if (questionNumber < mechanicsQuizBrain.magicNumber()) {
+                    if (questionNumber < 8) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -152,7 +156,7 @@ class _MechanicsState extends State<Mechanics> {
                   margin: EdgeInsets.all(15.0),
                   decoration: BoxDecoration(
                       border: Border.all(
-                    color: Colors.white,
+                    color: Color.fromRGBO(240, 84, 84, 1.0),
                     style: BorderStyle.solid,
                     width: 2.0,
                   )),
@@ -163,7 +167,7 @@ class _MechanicsState extends State<Mechanics> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15.0,
-                        color: Colors.white,
+                        color: Color.fromRGBO(221, 221, 221, 1.0),
                       ),
                     ),
                   ),
