@@ -14,16 +14,20 @@ class _ObjectionsState extends State<Objections> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Objections'),
+        backgroundColor: Color.fromRGBO(48, 71, 94, 1.0),
+        title: Text('Objections',
+        style: TextStyle(
+          color: Color.fromRGBO(221, 221, 221, 1.0)
+        ),),
         //ToDo: Add pic and hero animation
       ),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
               color: Color.fromRGBO(
-            37,
-            45,
-            75,
+            48,
+            71,
+            94,
             1.0,
           )),
           child: ListView(
@@ -31,10 +35,10 @@ class _ObjectionsState extends State<Objections> {
             children: [
               Container(
                 margin: EdgeInsets.all(15.0),
-                height: 175.0,
+                height: 180.0,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.white,
+                    color: Color.fromRGBO(240, 84, 84, 1.0),
                     style: BorderStyle.solid,
                     width: 2.0,
                   ),
@@ -45,7 +49,7 @@ class _ObjectionsState extends State<Objections> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 18.0,
-                      color: Colors.white,
+                      color: Color.fromRGBO(221, 221, 221, 1.0),
                     ),
                   ),
                 ),
@@ -56,7 +60,7 @@ class _ObjectionsState extends State<Objections> {
                     objectionsQuizBrain.pickedOne();
                     objectionsQuizBrain.checkAnswer();
                     objectionsQuizBrain.nextQuestion();
-                    if (questionNumber < objectionsQuizBrain.magicNumber()) {
+                    if (questionNumber < 8) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
                         Padding(padding: const EdgeInsets.all(8.0),),
                         Flexible(child: Text(objectionsQuizBrain.correctAnswerForSnack()))
@@ -70,7 +74,7 @@ class _ObjectionsState extends State<Objections> {
                   margin: EdgeInsets.all(15.0),
                   decoration: BoxDecoration(
                       border: Border.all(
-                    color: Colors.white,
+                    color: Color.fromRGBO(240, 84, 84, 1.0),
                     style: BorderStyle.solid,
                     width: 2.0,
                   )),
@@ -81,7 +85,7 @@ class _ObjectionsState extends State<Objections> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 15.0,
-                          color: Colors.white,
+                          color: Color.fromRGBO(221, 221, 221, 1.0),
                         )),
                   ),
                 ),
@@ -92,7 +96,7 @@ class _ObjectionsState extends State<Objections> {
                     objectionsQuizBrain.pickedTwo();
                     objectionsQuizBrain.checkAnswer();
                     objectionsQuizBrain.nextQuestion();
-                    if (questionNumber < objectionsQuizBrain.magicNumber()) {
+                    if (questionNumber < 8) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
                         Padding(padding: const EdgeInsets.all(8.0),),
                         Flexible(child: Text(objectionsQuizBrain.correctAnswerForSnack()))
@@ -106,7 +110,7 @@ class _ObjectionsState extends State<Objections> {
                   margin: EdgeInsets.all(15.0),
                   decoration: BoxDecoration(
                       border: Border.all(
-                    color: Colors.white,
+                    color: Color.fromRGBO(240, 84, 84, 1.0),
                     style: BorderStyle.solid,
                     width: 2.0,
                   )),
@@ -117,7 +121,7 @@ class _ObjectionsState extends State<Objections> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15.0,
-                        color: Colors.white,
+                        color: Color.fromRGBO(221, 221, 221, 1.0),
                       ),
                     ),
                   ),
@@ -129,9 +133,12 @@ class _ObjectionsState extends State<Objections> {
                     objectionsQuizBrain.pickedThree();
                     objectionsQuizBrain.checkAnswer();
                     objectionsQuizBrain.nextQuestion();
-                    if (questionNumber < objectionsQuizBrain.magicNumber()) {
+                    if (questionNumber < 8) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
-                        Padding(padding: const EdgeInsets.all(8.0),),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: objectionsQuizBrain.feedbackIcon(),
+                          ),
                         Flexible(child: Text(objectionsQuizBrain.correctAnswerForSnack()))
                       ]),
                       duration: Duration(seconds: 3),
@@ -145,7 +152,7 @@ class _ObjectionsState extends State<Objections> {
                     margin: EdgeInsets.all(15.0),
                     decoration: BoxDecoration(
                         border: Border.all(
-                      color: Colors.white,
+                      color: Color.fromRGBO(240, 84, 84, 1.0),
                       style: BorderStyle.solid,
                       width: 2.0,
                     )),
@@ -156,7 +163,7 @@ class _ObjectionsState extends State<Objections> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 15.0,
-                          color: Colors.white,
+                          color: Color.fromRGBO(221, 221, 221, 1.0),
                         ),
                       ),
                     ),

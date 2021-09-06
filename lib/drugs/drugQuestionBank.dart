@@ -20,7 +20,7 @@ class DrugQuizBrain {
   }
 
   void nextQuestion() {
-    if (questionNumber < _drugQuestionBank.length - 1) {
+    if (questionNumber < 9) {
       questionNumber++;
     } else {
       navigatorKey.currentState.push(MaterialPageRoute(
@@ -78,7 +78,4 @@ class DrugQuizBrain {
     return _drugQuestionBank[questionNumber -1].correctAnswer;
   }
 
-  int magicNumber() {
-    return _drugQuestionBank.length -1;
-  }
 }

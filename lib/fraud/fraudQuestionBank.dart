@@ -20,7 +20,7 @@ class FraudQuizBrain {
   }
 
   void nextQuestion() {
-    if (questionNumber < _fraudQuestionBank.length - 1) {
+    if (questionNumber < 9) {
       questionNumber++;
     } else {
       navigatorKey.currentState.push(MaterialPageRoute(
@@ -79,7 +79,4 @@ class FraudQuizBrain {
     return _fraudQuestionBank[questionNumber - 1].correctAnswer;
   }
 
-  int magicNumber() {
-    return _fraudQuestionBank.length - 1;
-  }
 }

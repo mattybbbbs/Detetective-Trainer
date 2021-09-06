@@ -19,7 +19,7 @@ class AssaultQuizBrain {
   }
 
   void nextQuestion() {
-    if (questionNumber < _assaultQuestionBank.length - 1) {
+    if (questionNumber < 9) {
       questionNumber++;
     } else {
       navigatorKey.currentState.push(MaterialPageRoute(
@@ -78,7 +78,4 @@ class AssaultQuizBrain {
     return _assaultQuestionBank[questionNumber - 1].correctAnswer;
   }
 
-  int magicNumber() {
-    return _assaultQuestionBank.length - 1;
-  }
 }

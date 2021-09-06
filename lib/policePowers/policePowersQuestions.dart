@@ -14,16 +14,21 @@ class _PolicepowersState extends State<Policepowers> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Police Powers'),
+        backgroundColor: Color.fromRGBO(48, 71, 94, 1.0),
+        title: Text('Police Powers',
+        style: TextStyle(
+          color: Color.fromRGBO(221, 221, 221, 1.0)
+        ),),
+        elevation: 0.0,
         //ToDo: Add pic and hero animation
       ),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
               color: Color.fromRGBO(
-            37,
-            45,
-            75,
+            48,
+            71,
+            94,
             1.0,
           )),
           child: ListView(
@@ -31,10 +36,10 @@ class _PolicepowersState extends State<Policepowers> {
             children: [
               Container(
                 margin: EdgeInsets.all(15.0),
-                height: 175.0,
+                height: 180.0,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.white,
+                    color: Color.fromRGBO(240, 84, 84, 1.0),
                     style: BorderStyle.solid,
                     width: 2.0,
                   ),
@@ -45,7 +50,7 @@ class _PolicepowersState extends State<Policepowers> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 18.0,
-                      color: Colors.white,
+                      color: Color.fromRGBO(221, 221, 221, 1.0),
                     ),
                   ),
                 ),
@@ -56,7 +61,7 @@ class _PolicepowersState extends State<Policepowers> {
                     policePowersQuizBrain.pickedOne();
                     policePowersQuizBrain.checkAnswer();
                     policePowersQuizBrain.nextQuestion();
-                    if (questionNumber < policePowersQuizBrain.magicNumber()) {
+                    if (questionNumber < 8) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -72,7 +77,7 @@ class _PolicepowersState extends State<Policepowers> {
                   margin: EdgeInsets.all(15.0),
                   decoration: BoxDecoration(
                       border: Border.all(
-                    color: Colors.white,
+                    color: Color.fromRGBO(240, 84, 84, 1.0),
                     style: BorderStyle.solid,
                     width: 2.0,
                   )),
@@ -83,7 +88,7 @@ class _PolicepowersState extends State<Policepowers> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 15.0,
-                          color: Colors.white,
+                          color: Color.fromRGBO(221, 221, 221, 1.0),
                         )),
                   ),
                 ),
@@ -94,7 +99,7 @@ class _PolicepowersState extends State<Policepowers> {
                     policePowersQuizBrain.pickedTwo();
                     policePowersQuizBrain.checkAnswer();
                     policePowersQuizBrain.nextQuestion();
-                    if (questionNumber < policePowersQuizBrain.magicNumber()) {
+                    if (questionNumber < 8) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
                         Padding(padding: const EdgeInsets.all(8.0),
                         child: policePowersQuizBrain.feedbackIcon(),
@@ -109,7 +114,7 @@ class _PolicepowersState extends State<Policepowers> {
                   margin: EdgeInsets.all(15.0),
                   decoration: BoxDecoration(
                       border: Border.all(
-                    color: Colors.white,
+                    color: Color.fromRGBO(240, 84, 84, 1.0),
                     style: BorderStyle.solid,
                     width: 2.0,
                   )),
@@ -119,7 +124,7 @@ class _PolicepowersState extends State<Policepowers> {
                       policePowersQuizBrain.getWrongAnswers()[1].toString(),
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color.fromRGBO(221, 221, 221, 1.0),
                         fontSize: 15.0,
                       ),
                     ),
@@ -132,7 +137,7 @@ class _PolicepowersState extends State<Policepowers> {
                     policePowersQuizBrain.pickedThree();
                     policePowersQuizBrain.checkAnswer();
                     policePowersQuizBrain.nextQuestion();
-                    if (questionNumber < policePowersQuizBrain.magicNumber()) {
+                    if (questionNumber < 8) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Row(children: [
                         Padding(padding: const EdgeInsets.all(8.0),
                         child: policePowersQuizBrain.feedbackIcon(),
@@ -151,7 +156,7 @@ class _PolicepowersState extends State<Policepowers> {
                   margin: EdgeInsets.all(15.0),
                   decoration: BoxDecoration(
                       border: Border.all(
-                    color: Colors.white,
+                    color: Color.fromRGBO(240, 84, 84, 1.0),
                     style: BorderStyle.solid,
                     width: 2.0,
                   )),
@@ -162,7 +167,7 @@ class _PolicepowersState extends State<Policepowers> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15.0,
-                        color: Colors.white,
+                        color: Color.fromRGBO(221, 221, 221, 1.0),
                       ),
                     ),
                   ),

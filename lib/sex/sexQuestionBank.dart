@@ -20,7 +20,7 @@ class SexQuizBrain {
   }
 
   void nextQuestion() {
-    if (questionNumber < _sexQuestionBank.length - 1) {
+    if (questionNumber < 9) {
       questionNumber++;
     } else {
       navigatorKey.currentState.push(MaterialPageRoute(
@@ -79,7 +79,4 @@ String correctAnswerForSnack() {
     return _sexQuestionBank[questionNumber - 1].correctAnswer;
   }
 
-  int magicNumber() {
-    return _sexQuestionBank.length - 1;
-  }  
 }

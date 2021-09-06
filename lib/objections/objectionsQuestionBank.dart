@@ -20,7 +20,7 @@ class ObjectionsQuizBrain {
   }
 
   void nextQuestion() {
-    if (questionNumber < _objectionsQuestionBank.length - 1) {
+    if (questionNumber < 9) {
       questionNumber++;
     } else {
       navigatorKey.currentState.push(MaterialPageRoute(
@@ -79,7 +79,4 @@ class ObjectionsQuizBrain {
     return _objectionsQuestionBank[questionNumber -1].correctAnswer;
   }
 
-  int magicNumber() {
-    return _objectionsQuestionBank.length -1;
-  }
 }

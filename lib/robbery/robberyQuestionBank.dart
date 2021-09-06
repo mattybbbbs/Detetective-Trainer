@@ -21,7 +21,7 @@ class RobberyQuizBrain {
   }
 
   void nextQuestion() {
-    if (questionNumber < _robberyQuestionBank.length - 1) {
+    if (questionNumber < 9) {
       questionNumber++;
     } else {
       navigatorKey.currentState.push(MaterialPageRoute(
@@ -80,7 +80,4 @@ class RobberyQuizBrain {
     return _robberyQuestionBank[questionNumber - 1].correctAnswer;
   }
 
-  int magicNumber() {
-    return _robberyQuestionBank.length - 1;
-  }
 }

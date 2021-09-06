@@ -19,7 +19,7 @@ class PolicePowersQuizBrain {
   }
 
   void nextQuestion() {
-    if (questionNumber < _policePowersQuestionBank.length - 1) {
+    if (questionNumber < 9) {
       questionNumber++;
     } else {
       navigatorKey.currentState.push(MaterialPageRoute(
@@ -44,10 +44,11 @@ class PolicePowersQuizBrain {
     if (_policePowersQuestionBank[questionNumber].correctAnswer ==
         pickedAnswer) {
       score++;
-      
       print(score);
+      print(questionNumber);
     } else {
       print(score);
+      print(questionNumber);
     }
   }
 
@@ -77,9 +78,5 @@ class PolicePowersQuizBrain {
   String correctAnswerForSnack(){
     return _policePowersQuestionBank[questionNumber -1].correctAnswer;
   }
-
-  int magicNumber() {
-    return _policePowersQuestionBank.length - 1;
-  }
-
+  
 }

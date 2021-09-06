@@ -20,7 +20,7 @@ class OffenderIdQuizBrain {
   }
 
   void nextQuestion() {
-    if (questionNumber < _offenderIdQuestionBank.length - 1) {
+    if (questionNumber < 9) {
       questionNumber++;
     } else {
       navigatorKey.currentState.push(MaterialPageRoute(
@@ -44,11 +44,11 @@ class OffenderIdQuizBrain {
   checkAnswer() {
     if (_offenderIdQuestionBank[questionNumber].correctAnswer == pickedAnswer) {
       score++;
-      
       print(score);
+      print(questionNumber);
     } else {
-     
       print(score);
+      print(questionNumber);
     }
   }
 
@@ -79,9 +79,5 @@ class OffenderIdQuizBrain {
 
   String correctAnswerForSnack() {
     return _offenderIdQuestionBank[questionNumber -1].correctAnswer;
-  }
-
-  int magicNumber() {
-    return _offenderIdQuestionBank.length -1;
   }
 }

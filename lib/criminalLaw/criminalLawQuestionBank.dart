@@ -22,7 +22,7 @@ class CriminalLawQuizBrain {
   }
 
   void nextQuestion() {
-    if (questionNumber < _criminalLawQuestionBank.length - 1) {
+    if (questionNumber < 9) {
       questionNumber++;
     } else {
       navigatorKey.currentState
@@ -74,7 +74,5 @@ class CriminalLawQuizBrain {
     return _criminalLawQuestionBank[questionNumber - 1].correctAnswer;
   }
 
-  int magicNumber() {
-    return _criminalLawQuestionBank.length - 1;
-  }
+  
 }

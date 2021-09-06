@@ -20,7 +20,7 @@ class SearchingQuizBrain {
   }
 
   void nextQuestion() {
-    if (questionNumber < _searchingQuestionBank.length - 1) {
+    if (questionNumber < 9) {
       questionNumber++;
     } else {
       navigatorKey.currentState.push(MaterialPageRoute(
@@ -44,11 +44,11 @@ class SearchingQuizBrain {
   checkAnswer() {
     if (_searchingQuestionBank[questionNumber].correctAnswer == pickedAnswer) {
       score++;
-      //ToDO: Give positive feedback
       print(score);
+      print(questionNumber);
     } else {
-      //ToDO: Provide correct answer and negative feedback
       print(score);
+      print(questionNumber);
     }
   }
 
@@ -78,9 +78,4 @@ class SearchingQuizBrain {
   String correctAnswerForSnack() {
     return _searchingQuestionBank[questionNumber - 1].correctAnswer;
   }
-
-  int magicNumber() {
-    return _searchingQuestionBank.length - 1;
-  }
-
 }

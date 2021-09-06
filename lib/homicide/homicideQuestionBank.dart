@@ -20,7 +20,7 @@ class HomicideQuizBrain {
   }
 
   void nextQuestion() {
-    if (questionNumber < _homicideQuestionBank.length - 1) {
+    if (questionNumber < 9) {
       questionNumber++;
     } else {
       navigatorKey.currentState.push(MaterialPageRoute(
@@ -79,7 +79,4 @@ class HomicideQuizBrain {
     return _homicideQuestionBank[questionNumber - 1].correctAnswer;
   }
 
-  int magicNumber() {
-    return _homicideQuestionBank.length - 1;
-  }
 }
